@@ -2,7 +2,8 @@ package model.entities;
 
 import java.io.Serializable;
 
-public class Department implements Serializable {
+//serializable para transformar objetos em sequência de bytes. Usado para gravar objeto em arquivos, trafegar objeto em rede, etc.
+public class Department implements Serializable { 
 
 	private static final long serialVersionUID = 1L;
 
