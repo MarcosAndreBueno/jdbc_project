@@ -137,6 +137,7 @@ public class SellerDaoJDBC implements SellerDao {
 		}
 	}
 
+	//criar objeto vendedor, neste caso não fechar connection para poder reutilizar objeto em insert, update...
 	private Seller instantiateSeller(ResultSet rs, Department dep) throws SQLException {
 		Seller obj = new Seller();
 		obj.setId(rs.getInt("Id"));
@@ -211,7 +212,7 @@ public class SellerDaoJDBC implements SellerDao {
 			rs = st.executeQuery();
 			
 			List<Seller> list = new ArrayList<>();
-			Map<Integer, Department> map = new HashMap<>();
+			Map<Integer, Department> map = new HashMap<>(); //usado para evitar criar mais de um objeto departamento
 			
 			while (rs.next()) {
 				
