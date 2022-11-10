@@ -45,9 +45,9 @@ public class SellerDaoJDBC implements SellerDao {
 			int rowsAffected = st.executeUpdate();
 			
 			if (rowsAffected > 0) {
-				ResultSet rs = st.getGeneratedKeys();
-				if (rs.next()) {
-					int id = rs.getInt(1);
+				ResultSet rs = st.getGeneratedKeys(); //retorna todas keys geradas pelo statement
+				if (rs.next()) { //enquanto houver outra linha
+					int id = rs.getInt(1); //rs só tem 1 coluna
 					obj.setId(id);
 				}
 				DB.closeResultSet(rs);
